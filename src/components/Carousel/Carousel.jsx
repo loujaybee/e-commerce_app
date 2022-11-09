@@ -35,16 +35,28 @@ const Carousel = ({ slides }) => {
       </div>
       {/* mapping over the carouselData array in carouselData.js */}
       {carouselData.map((c, index) => {
+
+        console.log(c.image)
         return (
           <div
             key={c.id}
-            className={`carousel-image-container ${
-              index === current ? "slide active" : "slide hidden"
-            }`}
+            style={{
+              backgroundImage: `url("${c.image}")`,
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: ({
+                "images/product-1.jpg": "center center",
+                "images/product-2.jpg": "center top",
+                "images/product-3.jpg": "center top",
+                "images/product-4.jpg": "center top"
+              })[c.image],
+              backgroundSize: "cover"
+            }}
+            className={`carousel-image-container ${index === current ? "slide active" : "slide hidden"
+              }`}
           >
-            {index === current && (
+            {/* {index === current && (
               <img src={c.image} alt={c.alt} className="carousel-image" />
-            )}
+            )} */}
           </div>
         );
       })}

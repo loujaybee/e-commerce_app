@@ -37,6 +37,11 @@ const Carousel = ({ slides }) => {
       {carouselData.map((c, index) => {
 
         console.log(c.image)
+        {/* 
+
+            You could do this with a class, e.g. add: "backgroundrepeat" to a class, then keep the dynamic content here as an inline style...
+        
+        */}
         return (
           <div
             key={c.id}
